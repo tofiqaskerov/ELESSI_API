@@ -27,7 +27,7 @@ namespace Elessi_API.Controllers
         }
 
         // GET api/<SliderController>/5
-        [HttpGet("{id}")]
+        [HttpGet("Get/{id}")]
         public IActionResult GetById(int id)
         {
             var result = _blogService.GetById(id);
@@ -37,7 +37,7 @@ namespace Elessi_API.Controllers
         }
 
         // POST api/<SliderController>
-        [HttpGet("All")]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
             var result = _blogService.GetAll();
@@ -46,7 +46,7 @@ namespace Elessi_API.Controllers
         }
 
         // PUT api/<SliderController>/5
-        [HttpPut("{id}")]
+        [HttpPut("Update/{id}")]
         public IActionResult Update(int id, [FromBody] BlogDTO blogDTO)
         {
             var result = _blogService.Update(id, blogDTO);
@@ -55,7 +55,7 @@ namespace Elessi_API.Controllers
         }
 
         // DELETE api/<SliderController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         public IActionResult Delete(int id)
         {
             var result = _blogService.Delete(id);

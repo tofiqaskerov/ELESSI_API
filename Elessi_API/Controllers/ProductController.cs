@@ -27,7 +27,7 @@ namespace Elessi_API.Controllers
         }
 
         // GET api/<SliderController>/5
-        [HttpGet("{id}")]
+        [HttpGet("Get/{id}")]
         public IActionResult GetById(int id)
         {
             var result = _productService.GetById(id);
@@ -36,7 +36,7 @@ namespace Elessi_API.Controllers
         }
 
         // POST api/<SliderController>
-        [HttpGet("All")]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
             var result = _productService.GetAll();
@@ -45,7 +45,7 @@ namespace Elessi_API.Controllers
         }
 
         // PUT api/<SliderController>/5
-        [HttpPut("{id}")]
+        [HttpPut("Update/{id}")]
         public IActionResult Update(int id, [FromBody] AddProductDTO productDTO)
         {
             var result = _productService.Update(id, productDTO);
@@ -54,7 +54,7 @@ namespace Elessi_API.Controllers
         }
 
         // DELETE api/<SliderController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         public IActionResult Delete(int id)
         {
             var result = _productService.Delete(id);
