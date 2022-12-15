@@ -49,7 +49,7 @@ namespace Elessi_API.Controllers
 
         // PUT api/<SliderController>/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] SliderDTO sliderDTO )
+        public IActionResult Update(int id, [FromBody] SliderDTO sliderDTO )
         {
             var result = _sliderService.Update(id, sliderDTO);
             if (result.Success) return Ok(new { status = 200, message = result.Message });

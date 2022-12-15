@@ -20,7 +20,10 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Slider> Sliders { get; set; }
-      
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductPicture> ProductPictures { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.Constants.Slider;
 using Core.Helpers.Results.Abstract;
 using Core.Helpers.Results.Concrete.ErrorResults;
 using Core.Helpers.Results.Concrete.SuccessResults;
@@ -35,7 +36,7 @@ namespace Business.Concrete
 
                 };
                 _sliderDal.Add(slider);
-                return new SuccessResult(Messages.SliderItemAdded);
+                return new SuccessResult(SliderMessage.SliderAdded);
             }
             catch(Exception e)
             {
@@ -49,7 +50,7 @@ namespace Business.Concrete
             {
                 var selectedProduct = _sliderDal.Get(x => x.Id == id);
                 _sliderDal.Delete(selectedProduct);
-                return new SuccessResult(Messages.SliderItemIsDeleted);
+                return new SuccessResult(SliderMessage.SliderIsDeleted);
             }
             catch (Exception e)
             {
@@ -62,7 +63,7 @@ namespace Business.Concrete
             try
             {
                 var products = _sliderDal.GetAll();
-                return new SuccessDataResult<List<Slider>>(products, Messages.SliderItemsIsFound);
+                return new SuccessDataResult<List<Slider>>(products, SliderMessage.SlidersIsFound);
             }
             catch (Exception e)
             {
@@ -75,7 +76,7 @@ namespace Business.Concrete
             try
             {
                 var product = _sliderDal.Get(x => x.Id == id);
-                return new SuccessDataResult<Slider>(product, Messages.SliderItemIsFound);
+                return new SuccessDataResult<Slider>(product, SliderMessage.SliderIsFound);
             }
             catch(Exception e)
             {
@@ -92,7 +93,7 @@ namespace Business.Concrete
                 selectedProduct.Title = sliderDTO.Title;
                 selectedProduct.Subtitle = sliderDTO.Subtitle;
                 _sliderDal.Update(selectedProduct);
-                return new SuccessResult(Messages.SliderItemIsUpdated);
+                return new SuccessResult(SliderMessage.SliderIsUpdated);
             }
             catch (Exception e)
             {
