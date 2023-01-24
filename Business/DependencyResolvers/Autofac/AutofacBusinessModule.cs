@@ -28,6 +28,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<BlogManager>().As<IBlogService>();
             builder.RegisterType<BlogDal>().As<IBlogDal>();
 
+            builder.RegisterType<UserManager>().As<IUserService>();
+            builder.RegisterType<UserDal>().As<IUserDal>();
+
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+
         }
     }
 }

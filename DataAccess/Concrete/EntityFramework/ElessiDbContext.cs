@@ -13,7 +13,8 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ElessiDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ElessiDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer("Data Source=SQL8002.site4now.net;Initial Catalog=db_a9195b_elessi;User Id=db_a9195b_elessi_admin;Password=Test@123");
         }
 
         public DbSet<User> Users { get; set; }
