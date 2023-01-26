@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Core.Helpers.Results.Abstract;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace Business.Abstract
         IResult Delete(User user);
         IResult Update(User user);
         IDataResult<User> GetUser(string email);
+        IDataResult<UserListDTO> GetUserByEmail(string email);
     }
 }

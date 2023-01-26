@@ -5,6 +5,7 @@ using Core.Helpers.Results.Abstract;
 using Core.Helpers.Results.Concrete.ErrorResults;
 using Core.Helpers.Results.Concrete.SuccessResults;
 using DataAccess.Abstract;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,29 @@ namespace Business.Concrete
 
                 throw;
             }
+        }
+
+        public IDataResult<UserListDTO> GetUserByEmail(string email)
+        {
+            try
+            {
+                var user = _userDal.Get(x => x.Email == email);
+                if (user == null) return new ErrorDataResult<UserListDTO>(UserMessage.UserNotFound);
+
+                UserListDTO result = new()
+                {
+                    Id = user.Id,
+                    Name = user.Name,
+                    Email = user.Email,
+                    Surname = user.Surname,
+                };
+                return new SuccessDataResult<UserListDTO>(result);
+            }
+            catch (Exception error)
+            {
+                return new ErrorDataResult<UserListDTO>(error.Message);
+            }
+           
         }
 
         public IResult Update(User user)

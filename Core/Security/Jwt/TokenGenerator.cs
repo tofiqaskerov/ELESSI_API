@@ -12,7 +12,7 @@ namespace Core.Security.Jwt
         public static string Token(User user, string role)
         {
             var jwtHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.UTF8.GetBytes("nmDLKAna9f9WEKPPH7z3tgwnQ433FAtrdP5c9AmDnmuJp9rzwTPwJ9yUu");
+            var key = Encoding.UTF8.GetBytes("aersrtbasA5DasdSEwdwedwEWD332WERLG46R2fervsmzutt6601dscTKKKZK14kefkr23");
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
@@ -22,11 +22,10 @@ namespace Core.Security.Jwt
                      new Claim (JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                      new Claim (ClaimTypes.Role, role),
                  }),
-                Expires = DateTime.UtcNow.AddMinutes(5),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
                 SecurityAlgorithms.HmacSha256Signature),
-                Issuer = "ComparAcademy",
-                Audience = "ComparAcademy"
+                Issuer = "Askerov10",
+                Audience = "Askerov10"
             };
 
             var token = jwtHandler.CreateToken(tokenDescriptor);
