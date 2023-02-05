@@ -33,7 +33,7 @@ namespace Elessi_API.Controllers
         public IActionResult Login(LoginDTO loginDTO)
         {
             var result = _authManager.Login(loginDTO);
-            if (result.Success) return Ok(new { status = 200, token = result.Message });
+            if (result.Success) return Ok(new { status = 200, token = result.Message, data = result.Data });
 
             return BadRequest(new { status = 401, message = result.Message });
         }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants.Blog;
 using Business.Constants.User;
 using Core.Entities.Concrete;
 using Core.Helpers.Results.Abstract;
@@ -33,8 +34,8 @@ namespace Business.Concrete
             bool CheckPassword = HashingHelper.VerifyPassword(loginDTO.Password, user.Data.PasswordHash, user.Data.PasswordSalt);
             if (CheckPassword)
             {
-                string token = TokenGenerator.Token(user.Data, "Admin");
-                return new SuccessDataResult<User>(token);
+                string token = TokenGenerator.Token(user.Data, "Admin");                
+                return new SuccessDataResult<User>(user.Data,token);
             }
             return new ErrorDataResult<User>(UserMessage.EmailOrPassword);
         }
